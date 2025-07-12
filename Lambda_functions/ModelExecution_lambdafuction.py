@@ -30,7 +30,7 @@ def lambda_handler(event, context):
     response = sagemaker_runtime.invoke_endpoint(
         EndpointName=ENDPOINT_NAME,
         ContentType='application/json',
-        Body=df.iloc[1:].to_json(orient='records')
+        Body=df.iloc[2:].to_json(orient='records')
     )
 
     result = response['Body'].read().decode('utf-8')
